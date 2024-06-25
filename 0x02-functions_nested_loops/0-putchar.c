@@ -1,14 +1,12 @@
-int _putchar(char c);
+#include "main.h"
 
 /**
- *  * main - Entry point
- *   *
- *    * Description: Prints _putchar followed by a new line
- *     * Return: Always 0 (Success)
- *      */
+ * main - this is a function
+ * Return: returns 0
+ */
 int main(void)
 {
-	    char *str = "_putchar";
+	    char str[] = "_putchar";
 	        int i;
 
 		    for (i = 0; str[i] != '\0'; i++)
@@ -17,6 +15,5 @@ int main(void)
 						    }
 		        _putchar('\n');
 
-			    return (0);
+			    return 0;
 }
-
