@@ -14,7 +14,7 @@ int main(void)
 
     for (count = 2; count < 98; count++)
     {
-        if (a > 10000000000 || b > 10000000000) /* handle large numbers */
+        if (a > 10000000000 || b > 10000000000) 
         {
             a_half1 = a / 10000000000;
             a_half2 = a % 10000000000;
@@ -47,4 +47,3 @@ int main(void)
     printf("\n");
     return (0);
 }
-

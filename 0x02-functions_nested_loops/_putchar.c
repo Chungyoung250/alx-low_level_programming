@@ -1,14 +1,22 @@
-#include <unistd.h>
+#include "main.h"
 
 /**
- * _putchar - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * print_alphabet_x10 - Prints the alphabet 10 times, in lowercase,
+ * followed by a new line.
  */
-int _putchar(char c)
+void print_alphabet_x10(void)
 {
-    return (write(1, &c, 1));
+    char alphabet[] = "abcdefghijklmnopqrstuvwxyz\n";
+    int i;
+
+    for (i = 0; i < 10; i++)
+    {
+        char *ptr = alphabet;
+        while (*ptr)
+        {
+            _putchar(*ptr);
+            ptr++;
+        }
+    }
 }
 
