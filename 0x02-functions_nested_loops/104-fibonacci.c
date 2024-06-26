@@ -1,49 +1,53 @@
 #include <stdio.h>
 
+void print_fibonacci(int n);
+
 /**
- * main - prints the first 98 Fibonacci numbers, starting with 1 and 2
- *
- * Return: Always 0 (Success)
- */
+ *  * main - Entry point
+ *   *
+ *    * Return: Always 0 (Success)
+ *     */
 int main(void)
 {
-    unsigned long int a = 1, b = 2, a_half1, a_half2, b_half1, b_half2, half1, half2;
-    int count;
-
-    printf("%lu, %lu", a, b);
-
-    for (count = 2; count < 98; count++)
-    {
-        if (a > 10000000000 || b > 10000000000) 
-        {
-            a_half1 = a / 10000000000;
-            a_half2 = a % 10000000000;
-            b_half1 = b / 10000000000;
-            b_half2 = b % 10000000000;
-
-            half1 = a_half1 + b_half1;
-            half2 = a_half2 + b_half2;
-
-            if (half2 > 10000000000)
-            {
-                half1 += half2 / 10000000000;
-                half2 = half2 % 10000000000;
-            }
-
-            printf(", %lu%010lu", half1, half2);
-
-            a = b;
-            b = half1 * 10000000000 + half2;
-        }
-        else
-        {
-            unsigned long int temp = a + b;
-            printf(", %lu", temp);
-            a = b;
-            b = temp;
-        }
-    }
-
-    printf("\n");
-    return (0);
+	    print_fibonacci(98);
+	        return (0);
 }
+
+/**
+ *  * print_fibonacci - Prints the first n Fibonacci numbers
+ *   * @n: The number of Fibonacci numbers to print
+ *    */
+void print_fibonacci(int n)
+{
+	    unsigned long a_low = 1, a_high = 0;
+	        unsigned long b_low = 2, b_high = 0;
+		    unsigned long tmp_low, tmp_high;
+		        int count;
+
+			    printf("%lu, %lu", a_low, b_low);
+
+			        for (count = 2; count < n; count++)
+					    {
+						            tmp_low = a_low + b_low;
+							            tmp_high = a_high + b_high;
+
+								            if (tmp_low > 999999999)
+										            {
+												                tmp_low -= 1000000000;
+														            tmp_high += 1;
+															            }
+
+									            a_low = b_low;
+										            a_high = b_high;
+											            b_low = tmp_low;
+												            b_high = tmp_high;
+
+													            if (b_high)
+															                printf(", %lu%09lu", b_high, b_low);
+														            else
+																                printf(", %lu", b_low);
+															        }
+
+				    printf("\n");
+}
+
